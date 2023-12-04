@@ -31,21 +31,24 @@ const App = () => {
         humidity: data.main.humidity,
         error: null,
       });
-    }else{
+    }else if(city === undefined || country === undefined){
+      alert('please check your city or country')
+    }
+    else{
       alert('please fill the input')
     }
   };
   return (
     <div className="bg-orange-400 h-screen  ">
-      <MainForm getWeather={getWeather} weatherCast={weatherCast} />
-      <Weather
+      <MainForm getWeather={getWeather}  
+      
         name={weatherCast.name}
         description={weatherCast.description}
         city={weatherCast.city}
         country={weatherCast.country}
         humidity={weatherCast.humidity}
         error={weatherCast.error}
-      />
+        />
     </div>
   );
 };

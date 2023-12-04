@@ -1,6 +1,6 @@
 import React from "react";
-import Weather from "./Weather";
-function MainForm({ getWeather }) {
+
+function MainForm({ getWeather, name, description, city, country, humidity }) {
   return (
     <div className="w-8/12 mx-auto pt-16 shadow-md">
       <div className="flex">
@@ -17,8 +17,12 @@ function MainForm({ getWeather }) {
             </p>
           </div>
         </div>
-        <div className="bg-gray-600 w-6/12 ">
-          <form action="" onSubmit={getWeather} className="w-8/12 mx-auto mt-5">
+        <div className="bg-gray-600 w-6/12 flex flex-col  ">
+          <form
+            action=""
+            onSubmit={getWeather}
+            className="w-8/12 mx-auto mt-16"
+          >
             <div className="flex flex-col space-y-3">
               <input
                 className="p-2 rounded-md focus:outline-none"
@@ -40,8 +44,35 @@ function MainForm({ getWeather }) {
               </button>
             </div>
           </form>
-          <div>
-            <Weather />
+
+          <div className="flex flex-col px-5 w-10/12 justify-center items-center mt-10 space-y-10">
+            <div className="border-b-2 space-x-2  w-7/12">
+              <span className="font-bold text-yellow-300 text-xl"> name: </span>{" "}
+              <span className="text-white">{name}</span>
+            </div>
+            <div className="border-b-2 space-x-2 w-7/12">
+              <span className="font-bold text-yellow-300 text-xl">
+                location:
+              </span>
+              <span className="text-white">
+                  {city} , {country}
+              </span>
+            </div>
+            <div className="border-b-2 space-x-2 w-7/12">
+              <span className="font-bold text-yellow-300 text-xl">
+                temperature:
+              </span>
+              <span className="text-white"> {description}</span>
+            </div>
+            <div className="border-b-2 space-x-2 w-7/12">
+              <span className="font-bold text-yellow-300 text-xl">
+                humidity:
+              </span>
+              <span className="text-white">{humidity}</span>
+            </div>
+            {/* <div className='border-b-2 w-7/12'>
+           <span className='font-bold text-yellow-300'> location: </span> {city} , {country}
+        </div> */}
           </div>
         </div>
       </div>
